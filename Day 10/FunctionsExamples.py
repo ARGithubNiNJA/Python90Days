@@ -1,4 +1,3 @@
-##  Functions examples
 
 def sum(a,b):
     return a+b
@@ -12,9 +11,15 @@ def divide(a,b):
     else:
         return a/b
 
-num1=input("Enter the first number\n")
+num1=int(input("Enter the first number\n"))
 operation=input("Enter the operation\n")
-num2=input("Enter the second number\n")
+num2=int(input("Enter the second number\n"))
 
+method_call={"+":sum,
+             "-":subtract,
+             "*":multiply,
+             "/":divide}
+
+print(method_call[operation](num1, num2))
 
 
