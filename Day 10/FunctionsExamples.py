@@ -11,15 +11,26 @@ def divide(a,b):
     else:
         return a/b
 
-num1=int(input("Enter the first number\n"))
-operation=input("Enter the operation\n")
-num2=int(input("Enter the second number\n"))
+def calculator():
+    should_continue=True
+    num1=float(input("Enter the first number\n"))
+    while should_continue:
+        operation=input("Enter the operation\n")
+        num2=float(input("Enter the next number\n"))
 
-method_call={"+":sum,
-             "-":subtract,
-             "*":multiply,
-             "/":divide}
+        method_call={"+":sum,
+                     "-":subtract,
+                     "*":multiply,
+                     "/":divide}
+        result=method_call[operation](num1,num2)
+        print(f"{num1}{operation}{num2}={result}")
+        ask=input("Do you want to continue?(y/n)\n")
+        if ask.lower()=="y":
+            num1=result
+        else:
+            should_continue=False
+            print("\n"*20)
+calculator()  ##recurssion
 
-print(method_call[operation](num1, num2))
 
 
