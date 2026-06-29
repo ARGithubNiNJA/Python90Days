@@ -1,7 +1,6 @@
 from random import randint
 print("Welcome to the Number Guessing Game!")
 print("I am guessing a number between 1 and 100")
-print("Choose your difficulty level")
 
 difficulty={
     "easy":10,
