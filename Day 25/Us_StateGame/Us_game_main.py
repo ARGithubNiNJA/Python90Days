@@ -9,6 +9,7 @@ screen.addshape(image)
 turtle.shape(image)
 guessed_state=[]
 state_data=pandas.read_csv("50_states.csv")
+print(state_data)
 
 while len(guessed_state)<50:
     answer = screen.textinput(f"{score}/50", "Enter another state")
