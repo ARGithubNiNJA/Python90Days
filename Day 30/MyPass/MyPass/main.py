@@ -69,14 +69,31 @@ def Save():
 
 
 def search_password():
-   website_search=website_entry.get()
-   with open("data.json","r") as data_file:
-       json_data = json.load(data_file)
-       if website_search in json_data:
-           email=json_data[website_search]["email"]
-           password=json_data[website_search]["password"]
+    website_search = website_entry.get()
 
-   print(website_search)
+    try:
+        with open("data.json", "r") as data_file:
+            json_data = json.load(data_file)
+    except (FileNotFoundError, json.JSONDecodeError):
+        messagebox.showinfo(title="Error", message="No Data File Found")
+    else:
+        if website_search in json_data:
+            email = json_data[website_search]["email"]
+            password = json_data[website_search]["password"]
+
+            messagebox.showinfo(
+                title=website_search,
+                message=f"Email: {email} \n Password: {password}"
+            )
+            email_entry.insert(0, email)
+            password_entry.insert(0, password)
+        else:
+            messagebox.showinfo(
+                title="Error",
+                message=f"No details for {website_search} exist."
+            )
+
+   # print(website_search)
 
 
 
